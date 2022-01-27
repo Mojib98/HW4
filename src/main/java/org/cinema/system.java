@@ -21,8 +21,8 @@ public class system {
     int countCinema;
 
     public system() throws SQLException {
-        this.connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/mojib", "mojib", "1");
-        this.statement = connection.createStatement();
+      try{
+          countCinema =Singleton.getInstance().getInstance();
         this.admin = new Admin();
         this.user = new User();
         this.cinama = new Cinema();
@@ -31,6 +31,9 @@ public class system {
         this.ticket = new Ticket();
         this.scanner = new Scanner(java.lang.System.in);
         this.countCinema = 0;
+    }catch (SQLException e){
+          e.printStackTrace();
+      }
     }
 
     public void Start() throws SQLException {
@@ -76,6 +79,7 @@ public class system {
     }
 
     public void singUpCinema() throws SQLException {
+        try{
         java.lang.System.out.println("please insert your name");
         String name = scanner.next();
         System.out.println();
@@ -86,15 +90,27 @@ public class system {
         java.lang.System.out.println("thank you for sing up please wait our operator idenify your");
         admin.addTo(name, address, pass);
         this.countCinema++;
-    }
+    }catch (SQLException e){
+            e.printStackTrace();
+        }
 
     public void checkCinema() throws SQLException {
-        admin.checkCinema();
-    }
 
-    public void showCinema() throws SQLException {
+        try {
+
+        admin.checkCinema();
+    }catch ( SQLException e){
+            e.printStackTrace();
+        }}
+
+    public void showCinema()
+        {
+    try{
         admin.showCinema();
     }
+            catch (SQLException r){
+                r.printStackTrace();
+            }}
 
     public void insertUser() throws SQLException {
         java.lang.System.out.println("pleas insert your name");

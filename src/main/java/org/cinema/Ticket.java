@@ -27,6 +27,7 @@ public class Ticket {
 
     public void isertTicket(String name, String cinema, java.sql.Date date, int number) throws SQLException {
         this.insertto = "insert into ticket(nameMovie,cinema,times,number) values(?,?,?,?);";
+        try{
         this.preparedStatement = connection.prepareStatement(insertto);
         this.preparedStatement.setString(1, name);
         this.preparedStatement.setString(2, cinema);
@@ -34,9 +35,14 @@ public class Ticket {
        // this.preparedStatement.setDate(4,  time);
         this.preparedStatement.setInt(4, number);
         this.preparedStatement.executeUpdate();
-    }
+    }catch (SQLException e){
+            e.printStackTrace();
+        }}
+
+
 
     public void removeTicket(String cinema,String name) throws SQLException {
+        try {
         if (isCheckTime(cinema,name)) {
             String sql = "DELETE FROM ticket " +
                     "WHERE cinema =? and nameMovie = ?";
@@ -48,10 +54,13 @@ public class Ticket {
         else
             System.out.println("cant remove");
 
-    }
+    }catch (SQLException e ){
+            e.printStackTrace();
+        }}
     public boolean isCheckTime(String cinema,String name) throws SQLException {
         String sql ="SELECT date from ticket " +
                 "where movieName and cinema =?;";
+        try {
         this.preparedStatement = connection.prepareStatement(sql);
         this.preparedStatement.setString(1, name);
         this.preparedStatement.setString(2, cinema);
@@ -62,8 +71,9 @@ public class Ticket {
             return false;
         else
             return true;
+    }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
-
-
 
 }

@@ -13,23 +13,26 @@ public class User {
     private PreparedStatement preparedStatement;
 
     public User() throws SQLException {
-        this.connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/mojib", "mojib", "1");
-        this.statement = connection.createStatement();
-        String creatTableUsersql = "CREATE TABLE if not exists  user1(" +
-                "name varchar(20)," +
-                "pass integer ," +
-                "idu serial);";
-        this.preparedStatement = connection.prepareStatement(creatTableUsersql);
-       this.preparedStatement.execute();
-        String createTableTickitUser = "CREATE TABLE IF NOT EXISTS ticketuser(" +
-                "userName varchar(20)," +
-                "cinema varchar(20)," +
-                "movieName varchar(20)," +
-                "number1 integer," +
-                "userid integer);";
-        this.preparedStatement = connection.prepareStatement(createTableTickitUser);
-        this.preparedStatement.execute();
-
+       try {
+           connection = Singleton.getObj().getConnection();
+           String creatTableUsersql = "CREATE TABLE if not exists  user1(" +
+                   "name varchar(20)," +
+                   "pass integer ," +
+                   "idu serial);";
+           this.preparedStatement = connection.prepareStatement(creatTableUsersql);
+           this.preparedStatement.execute();
+           String createTableTickitUser = "CREATE TABLE IF NOT EXISTS ticketuser(" +
+                   "userName varchar(20)," +
+                   "cinema varchar(20)," +
+                   "movieName varchar(20)," +
+                   "number1 integer," +
+                   "userid integer);";
+           this.preparedStatement = connection.prepareStatement(createTableTickitUser);
+           this.preparedStatement.execute();
+       }
+       catch (SQLException e){
+           e.printStackTrace();
+       }
     }
 
     public void insertTi(String name, String nameMovie, String cinemaName, int number) throws SQLException {
