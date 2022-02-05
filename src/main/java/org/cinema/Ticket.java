@@ -1,7 +1,5 @@
 package org.cinema;
 import java.util.Date;
-import java.sql.Time;
-import javax.xml.crypto.Data;
 import java.sql.*;
 
 public class Ticket {
@@ -57,7 +55,7 @@ public class Ticket {
     }catch (SQLException e ){
             e.printStackTrace();
         }}
-    public boolean isCheckTime(String cinema,String name) throws SQLException {
+    public boolean isCheckTime(String cinema, String name) throws SQLException {
         String sql ="SELECT date from ticket " +
                 "where movieName and cinema =?;";
         try {
@@ -74,6 +72,7 @@ public class Ticket {
     }catch (SQLException e){
             e.printStackTrace();
         }
+        return false;
     }
 
 }

@@ -96,29 +96,27 @@ public class system {
 
     public void checkCinema() throws SQLException {
 
-        try {
-
-        admin.checkCinema();
-    }catch ( SQLException e){
-            e.printStackTrace();
-        }}
+            admin.checkCinema();
+        }
 
     public void showCinema()
         {
-    try{
-        admin.showCinema();
-    }
-            catch (SQLException r){
-                r.printStackTrace();
-            }}
+            admin.showCinema();
+        }
 
     public void insertUser() throws SQLException {
+
+        try {
+
+
         java.lang.System.out.println("pleas insert your name");
         String name = scanner.next();
         java.lang.System.out.println("please insert your pass");
         int pass = scanner.nextInt();
         user.insertUser(name, pass);
-    }
+    }catch (SQLException e){
+            e.printStackTrace();
+        }}
 
     public boolean checkUser(String name, int pass) throws SQLException {
         boolean is = user.isUseridntify(name, pass);

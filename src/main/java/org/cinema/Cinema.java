@@ -14,7 +14,8 @@ public class Cinema {
                 "passcode integer," +
                 "address varchar(30)," +
                 "cash_desk integer," +
-                "id serial" +
+                "id serial," +
+                "isActive boolean" +
                 ");";
         try {
        connection=Singleton.getInstance().getConnection();
@@ -27,13 +28,14 @@ public class Cinema {
     }
     public void insertCinema(String name,int passCode,String address) {
 
-        this.insertto = "insert into cinema(name,passcode,address,cash_desk) values(?,?,?,?);";
+        this.insertto = "insert into cinema(name,passcode,address,cash_desk) values(?,?,?,?,?);";
         try {
         this.preparedStatement = connection.prepareStatement(insertto);
         this.preparedStatement.setString(1,name);
         this.preparedStatement.setInt(2,passCode);
         this.preparedStatement.setString(3,address);
         this.preparedStatement.setInt(4,0);
+        this.preparedStatement.setBoolean(5,false);
         int i = preparedStatement.executeUpdate();
         System.out.println(i);}
         catch (SQLException e){
@@ -70,6 +72,18 @@ public class Cinema {
             e.printStackTrace();
         }
         return isHere;
+    }
+    public void  activeCinema(String name){
+        showCinema();
+        try {
+        String active="UPDATE cinema set isActive = ? where nama =?";
+        this.preparedStatement= connection.prepareStatement(active);
+        this.preparedStatement.setBoolean(1,true);
+
+            this.preparedStatement.setString(2,name);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 

@@ -12,7 +12,7 @@ public class User {
     private Statement statement;
     private PreparedStatement preparedStatement;
 
-    public User() throws SQLException {
+    public User()  {
        try {
            connection = Singleton.getObj().getConnection();
            String creatTableUsersql = "CREATE TABLE if not exists  user1(" +
@@ -36,6 +36,7 @@ public class User {
     }
 
     public void insertTi(String name, String nameMovie, String cinemaName, int number) throws SQLException {
+        try{
         int id = id(name);
         String sqlInsert = "INSERT INTO ticketuser(userName,cinema,movieName,number,userid) VALUES(?,?,?,?,?);";
         this.preparedStatement = connection.prepareStatement(sqlInsert);
@@ -45,7 +46,9 @@ public class User {
         preparedStatement.setInt(4, number);
         preparedStatement.setInt(5, id);
         preparedStatement.executeUpdate();
-    }
+    }catch (SQLException e){
+            e.printStackTrace();
+        }}
 
     public int id(String name) throws SQLException {
         String returnId = "SELECT id FROM user1" +

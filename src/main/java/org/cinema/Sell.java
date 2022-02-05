@@ -12,7 +12,7 @@ public class Sell {
 
     public Sell() {
         try {
-            this.connectio = Singleton.getInstance().getConnection();
+            this.connection = Singleton.getInstance().getConnection();
             this.user = new User();
         } catch (SQLException e) {
             e.printStackTrace();

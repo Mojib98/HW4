@@ -16,22 +16,25 @@ public class Admin {
     private int index;
     private Cinema cinama;
     Scanner scanner;
-    private JProgressBar preparedStatement;
 
-    public Admin() throws SQLException {
+
+    public Admin() {
+        try{
         this.cinames = new String[5];
         this.address = new String[5];
         this.passcode = new int[5];
         this.index = 0;
         this.cinama = new Cinema();
         this.scanner = new Scanner(System.in);
-    }
+    } catch (NullPointerException e){
+            e.printStackTrace();
+    }}
 
-    private void addCinema(String name,String address,int passcode ) throws SQLException {
+    private void addCinema(String name,String address,int passcode )  {
         cinama.insertCinema(name,passcode,address);
     }
 
-    public void checkCinema() throws SQLException {
+    public void checkCinema(){
         for (int i = 0; i < this.index; i++) {
             System.out.println(cinames[i]);
             System.out.println("if want insert please y else n");
@@ -54,12 +57,13 @@ public class Admin {
         this.cinames[index] = name;
         this.index++;
     }
-    public void showCinema() throws SQLException {
+    public void showCinema() {
         cinama.showCinema();
     }
-    public boolean isHaveCinema(String name,int pass) throws SQLException {
+    public boolean isHaveCinema(String name,int pass)  {
         boolean isHave= cinama.Iscinamhave(name, pass);
         return isHave;
     }
+
 
 }
