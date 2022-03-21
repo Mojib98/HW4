@@ -1,6 +1,11 @@
 package Service;
 
+import Entity.Cinema;
+import Entity.Ticket;
+import Entity.User;
 import repository.AdminRepository;
+
+import java.util.List;
 
 public class AdminService {
     AdminRepository adminRepository = new AdminRepository();
@@ -18,6 +23,32 @@ public class AdminService {
             e.printStackTrace();
         }
     }
-    public void
+    public List<Cinema> allCinme(){
+        List<Cinema> list = null;
+        try {
+            list=adminRepository.allCinemr();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
+    public List<Ticket> allTicket(){
+        List<Ticket> list = null;
+        try {
+            list=adminRepository.allTicket();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
+    public List<User> allUser(){
+        List<User> list = null;
+        try {
+            list=adminRepository.allUser();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
 
 }
