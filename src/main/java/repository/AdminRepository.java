@@ -37,7 +37,7 @@ public class AdminRepository {
         List<Cinema> list =new ArrayList<>();
         String sql ="select * from cinema";
         preparedStatement =connection.prepareStatement(sql);
-        ResultSet resultSet = preparedStatement.getResultSet();
+        ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()){
             Cinema cinema = new Cinema();
             cinema.setName(resultSet.getString(2));
@@ -54,7 +54,7 @@ public class AdminRepository {
         List<User> list =new ArrayList<>();
         String sql ="select * from myuser";
         preparedStatement =connection.prepareStatement(sql);
-        ResultSet resultSet = preparedStatement.getResultSet();
+        ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()){
             User user = new User();
             user.setId(resultSet.getInt(1));
@@ -70,7 +70,7 @@ public class AdminRepository {
         List<Ticket> list = new ArrayList<>();
         String sql = "select * from ticket";
         preparedStatement = connection.prepareStatement(sql);
-        ResultSet resultSet = preparedStatement.getResultSet();
+        ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             Ticket ticket = new Ticket();
             ticket.setId(resultSet.getInt(1));
