@@ -62,7 +62,7 @@ public class CinemaApp {
         list.forEach(System.out::println);
     }
     public void findName(int id){
-
+        this.name=cinemaService.myName(id);
     }
 
 

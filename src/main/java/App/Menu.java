@@ -6,8 +6,38 @@ public class Menu {
     Scanner scanner = new Scanner(System.in);
     CinemaApp cinemaApp = new CinemaApp();
     AdminApp adminApp = new AdminApp();
+    LogingApp logingApp = new LogingApp();
     String name;
+    public void menu(){
+        while (true){
+        System.out.println("\t\tWelcome\n" +
+                "\tif yor admin insert 'admin'\n" +
+                "\tif you user insert 'user'\n" +
+                "if you cinema insert 'cinema'");
+        String swi=scanner.next();
+        System.out.println("please insert id");
+        int id = scanner.nextInt();
+        System.out.println("insert passcode");
+        int pass= scanner.nextInt();
+        switch (swi){
+            case "admin":
+                if (logingApp.admin(id,pass)){
+                    admin();
+                }
+                break;
+            case "user":
+                if (logingApp.user(id,pass)){
 
+                }
+            case "cinema":
+                if (logingApp.cinema(id,pass)){
+                    cinemaApp.findName(id);
+                    cinema();
+                }
+            default:
+                continue;
+        }
+    }}
     public void admin(){
         boolean isRun =true;
         while (isRun){
