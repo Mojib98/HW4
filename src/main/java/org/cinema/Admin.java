@@ -1,3 +1,4 @@
+/*
 package org.cinema;
 
 import javax.swing.*;
@@ -67,3 +68,4 @@ public class Admin {
 
 
 }
+*/

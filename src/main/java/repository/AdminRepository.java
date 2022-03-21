@@ -13,7 +13,7 @@ import java.util.List;
 
 public class AdminRepository {
     private Connection connection =
-            Singleton.getObj().getConnection();
+            Singleton.getInstance().getConnection();
     private PreparedStatement preparedStatement;
     public void activatingCinema(String name) throws SQLException {
         String sql="update cinema set active=? " +
@@ -77,7 +77,8 @@ public class AdminRepository {
             ticket.setCinemaName(resultSet.getString(2));
             ticket.setPrice(resultSet.getInt(3));
             ticket.setNumber(resultSet.getInt(4));
-            ticket.setTimestamp(resultSet.getTimestamp(5));
+            ticket.setDate(resultSet.getDate(5));
+            ticket.setMovieName(resultSet.getString(6));
             list.add(ticket);
         }
         preparedStatement.close();

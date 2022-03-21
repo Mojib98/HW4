@@ -1,3 +1,4 @@
+/*
 package org.cinema;
 import repository.Singleton;
 
@@ -70,7 +71,8 @@ public class User {
         preparedStatement.setString(2, name);
         preparedStatement.executeQuery();
     }
-    /*
+    */
+/*
         public int ids(String name) throws SQLException {
             String returnId = "SELECT id FROM user" +
                     "WHERE name =?";
@@ -79,7 +81,8 @@ public class User {
             ResultSet result = preparedStatement.executeQuery();
             int s = result.getInt("id");
             return s;
-        }*/
+        }*//*
+
     public void insertUser(String name , int passcode) throws SQLException {
         String sql ="INSERT INTO myuser(id, name, passcode, budget) VALUES(default,?,?,?);";
         this.preparedStatement=connection.prepareStatement(sql);
@@ -97,3 +100,4 @@ public class User {
         return this.preparedStatement.execute();
     }
 }
+*/

@@ -18,9 +18,13 @@ create table if not exists ticket(
     cinemaName varchar references cinema(name),
     price INTEGER,
     number Integer,
-    date timestamp
+    nameMovie varchar,
+    date DATE,
+    time TIME
 );
 create table if not exists user_ticket(
     idUser INTEGER references myUser(id),
     idTicket INTEGER references ticket(id)
-)
+);
+ALTER TABLE ticket ADD COLUMN movieName varchar;
+ALTER TABLE cinema ADD COLUMN budget INTEGER;

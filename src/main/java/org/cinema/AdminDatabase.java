@@ -1,3 +1,4 @@
+/*
 package org.cinema;
 
 import repository.Singleton;
@@ -15,3 +16,4 @@ public class AdminDatabase {
 
 
 }
+*/

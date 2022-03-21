@@ -1,3 +1,4 @@
+/*
 package org.cinema;
 
 import java.sql.SQLException;
@@ -13,3 +14,4 @@ public class Main {
             e.printStackTrace();
         }}
 }
+*/

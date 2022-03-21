@@ -1,3 +1,4 @@
+/*
 package org.cinema;
 
 import repository.Singleton;
@@ -45,7 +46,7 @@ public class system {
             java.lang.System.out.println("if you want sing up please insert 2 else insert other number");
             int su = scanner.nextInt();
             if (su == 2)
-                singUp();
+                //singUp();
                 java.lang.System.out.println("please insert your name");
             this.name = scanner.next();
             java.lang.System.out.println("please insert your passcode");
@@ -259,3 +260,4 @@ public class system {
             System.out.println("wrong");
     }
 }
+*/

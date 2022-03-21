@@ -1,3 +1,4 @@
+/*
 package org.cinema;
 
 import repository.Singleton;
@@ -124,4 +125,4 @@ public class Sell {
             e.printStackTrace();
         }
     }
-}
+}*/
