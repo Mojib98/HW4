@@ -1,5 +1,7 @@
 package org.cinema;
 
+import repository.Singleton;
+
 import javax.xml.crypto.Data;
 import java.sql.*;
 import java.sql.ResultSet;
@@ -11,12 +13,8 @@ public class Sell {
     User user;
 
     public Sell() {
-        try {
-            this.connection = Singleton.getInstance().getConnection();
-            this.user = new User();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        this.connection = Singleton.getInstance().getConnection();
+        this.user = new User();
     }
 
     public void showAllTicket() {

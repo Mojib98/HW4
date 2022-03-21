@@ -1,5 +1,7 @@
 package org.cinema;
 
+import repository.Singleton;
+
 import java.sql.*;
 
 public class Cinema {
@@ -18,7 +20,7 @@ public class Cinema {
                 "isActive boolean" +
                 ");";
         try {
-       connection=Singleton.getInstance().getConnection();
+       connection= Singleton.getInstance().getConnection();
 
         this.preparedStatement =connection.prepareStatement(table);
         preparedStatement.execute();

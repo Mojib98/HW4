@@ -1,4 +1,6 @@
 package org.cinema;
+import repository.Singleton;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -79,7 +81,7 @@ public class User {
             return s;
         }*/
     public void insertUser(String name , int passcode) throws SQLException {
-        String sql ="INSERT INTO user1(name,pass) VALUES(?,?);";
+        String sql ="INSERT INTO myuser(id, name, passcode, budget) VALUES(default,?,?,?);";
         this.preparedStatement=connection.prepareStatement(sql);
         this.preparedStatement.setString(1,name);
         this.preparedStatement.setInt(2,passcode);

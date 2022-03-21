@@ -1,6 +1,7 @@
 package org.cinema;
 
-import javax.xml.crypto.Data;
+import repository.Singleton;
+
 import java.sql.*;
 import java.util.Date;
 import java.util.Scanner;
@@ -22,7 +23,7 @@ public class system {
 
     public system() throws SQLException {
       try{
-          countCinema =Singleton.getInstance().getInstance();
+          countCinema = Singleton.getInstance().getInstance();
         this.admin = new Admin();
         this.user = new User();
         this.cinama = new Cinema();

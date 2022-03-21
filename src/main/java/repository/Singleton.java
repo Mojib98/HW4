@@ -1,4 +1,4 @@
-package org.cinema;
+package repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
