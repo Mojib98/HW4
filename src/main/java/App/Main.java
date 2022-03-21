@@ -7,9 +7,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         CinemaApp cinemaApp = new CinemaApp();
-        cinemaApp.insertTicket();
-
+        cinemaApp.insertTicket();*/
+        SingUpApp singUpApp = new SingUpApp();
+        singUpApp.menuForSingUp();
     }
 }

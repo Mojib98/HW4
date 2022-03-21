@@ -38,5 +38,5 @@ public class UserRepository {
         preparedStatement.setInt(2,ticketId);
         preparedStatement.execute();
         preparedStatement.close();
-    }
+        }
 }

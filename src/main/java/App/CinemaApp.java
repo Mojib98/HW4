@@ -14,17 +14,7 @@ public class CinemaApp {
     CinemaService cinemaService = new CinemaService();
     Scanner scanner = new Scanner(System.in);
     private  String name;
-    public void singUp(){
-        System.out.println("\t\tWelcome\n" +
-                "please insert your name");
-        String name = scanner.next().trim();
-        System.out.println("please insert passcode");
-        int passcode = scanner.nextInt();
-        System.out.println("please insert addres");
-        String address= scanner.next().trim();
-        Cinema cinema = new Cinema(name,address,passcode);
-        cinemaService.singup(cinema);
-    }
+
     public void insertTicket(){
         System.out.print("\tplease insert movieName: ");
         String mName = scanner.next().trim();

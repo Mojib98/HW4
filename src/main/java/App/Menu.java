@@ -7,6 +7,7 @@ public class Menu {
     CinemaApp cinemaApp = new CinemaApp();
     AdminApp adminApp = new AdminApp();
     LogingApp logingApp = new LogingApp();
+    sellingSystem sellingSystem = new sellingSystem();
     String name;
     public void menu(){
         while (true){
@@ -81,7 +82,33 @@ public class Menu {
             case 4:
         }
     }
+    public void user(){
+        boolean isRun=true;
+        while (isRun){
+            System.out.println("\t\tWELCOME\n" +
+                    "\tfor buying insert 1\n" +
+                    "\tfor find by name insert 2\n" +
+                    "\tfor find by date insert 3\n" +
+                    "for canceling insert 4\n" +
+                    "for exit insert 5\n");
+            int section=scanner.nextInt();
+            switch (section){
+                case 1:
+                    sellingSystem.selling();
+                    break;
+                case 2:
+                    sellingSystem.findByName();
+                    break;
+                case 3:
+                    sellingSystem.findByDate();
+                    break;
+                case 4:
+                case 5:
+                case 6:
 
+            }
+        }
+    }
 
 
 }
