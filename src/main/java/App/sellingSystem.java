@@ -13,9 +13,14 @@ public class sellingSystem {
     UserService userService = new UserService();
     Ticket ticket = null;
     int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void  selling(){
         List<Ticket> list = adminService.allTicket();
-        var a= list.iterator();
+      //  var a= list.iterator();
         System.out.println("whats you movie named");
         String name = scanner.next();
         System.out.println("how much need");

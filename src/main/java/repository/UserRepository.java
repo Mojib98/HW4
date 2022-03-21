@@ -27,7 +27,7 @@ public class UserRepository {
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1,iduser);
         preparedStatement.setInt(2,idTicket);
-        preparedStatement.setInt(2,number);
+        preparedStatement.setInt(3,number);
         preparedStatement.execute();
         preparedStatement.close();
     }

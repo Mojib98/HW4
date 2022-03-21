@@ -77,8 +77,9 @@ public class AdminRepository {
             ticket.setCinemaName(resultSet.getString(2));
             ticket.setPrice(resultSet.getInt(3));
             ticket.setNumber(resultSet.getInt(4));
-            ticket.setDate(resultSet.getDate(5));
-            ticket.setMovieName(resultSet.getString(6));
+            ticket.setDate(resultSet.getDate(6));
+            ticket.setTime(resultSet.getTime(7));
+            ticket.setMovieName(resultSet.getString(5));
             list.add(ticket);
         }
         preparedStatement.close();

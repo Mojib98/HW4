@@ -29,6 +29,7 @@ public class Menu {
                 break;
             case "user":
                 if (logingApp.user(id,pass)){
+                    user();
 
                 }
             case "cinema":
@@ -86,6 +87,7 @@ public class Menu {
         }
     }}
     public void user(){
+        sellingSystem.setId(id);
         boolean isRun=true;
         while (isRun){
             System.out.println("\t\tWELCOME\n" +
