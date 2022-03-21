@@ -22,5 +22,21 @@ public class UserRepository {
         preparedStatement.close();
 
     }
-
+    public void buying(int iduser,int idTicket,int number) throws SQLException {
+        String sql ="insert into user_ticket(iduser, idticket, number) VALUES (?,?,?)";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,iduser);
+        preparedStatement.setInt(2,idTicket);
+        preparedStatement.setInt(2,number);
+        preparedStatement.execute();
+        preparedStatement.close();
+    }
+    public void cancell(int userId,int ticketId) throws SQLException {
+        String sql ="delete from user_ticket where iduser=? and idticket";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,userId);
+        preparedStatement.setInt(2,ticketId);
+        preparedStatement.execute();
+        preparedStatement.close();
+    }
 }

@@ -24,7 +24,8 @@ create table if not exists ticket(
 );
 create table if not exists user_ticket(
     idUser INTEGER references myUser(id),
-    idTicket INTEGER references ticket(id)
+    idTicket INTEGER references ticket(id),
+    number integer
 );
 ALTER TABLE ticket ADD COLUMN movieName varchar;
 ALTER TABLE cinema ADD COLUMN budget INTEGER;
