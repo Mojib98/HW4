@@ -14,8 +14,14 @@ public class CinemaApp {
     CinemaService cinemaService = new CinemaService();
     Scanner scanner = new Scanner(System.in);
     private  String name;
+    private int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void insertTicket(){
+        findName(this.id);
         System.out.print("\tplease insert movieName: ");
         String mName = scanner.next().trim();
         System.out.println();
@@ -24,7 +30,8 @@ public class CinemaApp {
         System.out.println("please isnert number of ticket");
         int number = scanner.nextInt();
         System.out.print("Enter date(yyyy-dd-mm):");
-       String timeDate = scanner.nextLine();
+        String timeDate = scanner.next();
+        System.out.println();
         Date timeD;
         try {
             timeD = Date.valueOf(timeDate);
@@ -33,7 +40,7 @@ public class CinemaApp {
             return;
         }
         System.out.print("Enter time(HH:MM:SS):");
-        String clock = scanner.nextLine();
+        String clock = scanner.next();
         Time timeC;
         try {
             timeC = Time.valueOf(clock);
@@ -44,9 +51,11 @@ public class CinemaApp {
         Ticket ticket = new Ticket(this.name,price,number);
         ticket.setMovieName(mName);
         ticket.setTime(timeC);
+        ticket.setDate(timeD);
         cinemaService.insertTicket(ticket);
     }
     public void allMyTicket(){
+        findName(id);
         cinemaService.setName(this.name);
         List<Ticket> list=cinemaService.myTicket();
         list.forEach(System.out::println);

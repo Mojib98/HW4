@@ -16,7 +16,8 @@ public class LoginRepository {
         preparedStatement.setInt(1,id);
         preparedStatement.setInt(2,passcdoe);
         preparedStatement.setBoolean(3,true);
-        ResultSet resultSet = preparedStatement.getResultSet();
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
         if (resultSet.getInt(1)==1){
             return true;
         }else return false;
@@ -27,7 +28,8 @@ public class LoginRepository {
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1,id);
         preparedStatement.setInt(2,passcdoe);
-        ResultSet resultSet = preparedStatement.getResultSet();
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
         if (resultSet.getInt(1)==1){
             return true;
         }else return false;

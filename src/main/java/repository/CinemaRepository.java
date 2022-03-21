@@ -25,13 +25,14 @@ public class CinemaRepository {
         preparedStatement.close();
     }
     public void insertTicket(Ticket ticket) throws SQLException {
-        String sql="insert into ticket( cinemaname, price, number, date, namemovie) VALUES (?,?,?,?,?)";
+        String sql="insert into ticket(cinemaname, price, number, namemovie, date, time) VALUES (?,?,?,?,?,?)";
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1,ticket.getCinemaName());
         preparedStatement.setInt(2,ticket.getPrice());
-        preparedStatement.setInt(3,ticket.getPrice());
-        preparedStatement.setDate(4,ticket.getDate());
-        preparedStatement.setString(5,ticket.getMovieName());
+        preparedStatement.setInt(3,ticket.getNumber());
+        preparedStatement.setDate(5,ticket.getDate());
+        preparedStatement.setTime(6,ticket.getTime());
+        preparedStatement.setString(4,ticket.getMovieName());
         preparedStatement.execute();
         preparedStatement.close();
     }
@@ -44,7 +45,7 @@ public class CinemaRepository {
                 "where cinemaname =?";
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1,name);
-        ResultSet resultSet = preparedStatement.getResultSet();
+        ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             Ticket ticket = new Ticket();
             ticket.setId(resultSet.getInt(1));
@@ -63,7 +64,7 @@ public class CinemaRepository {
         String sql = "select name from cinema where id=?";
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1,id);
-        ResultSet resultSet=preparedStatement.getResultSet();
+        ResultSet resultSet=preparedStatement.executeQuery();
         resultSet.next();
         return resultSet.getString(1);
     }

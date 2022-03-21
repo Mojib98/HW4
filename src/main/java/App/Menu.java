@@ -9,6 +9,7 @@ public class Menu {
     LogingApp logingApp = new LogingApp();
     sellingSystem sellingSystem = new sellingSystem();
     String name;
+    int id;
     public void menu(){
         while (true){
         System.out.println("\t\tWelcome\n" +
@@ -17,7 +18,7 @@ public class Menu {
                 "if you cinema insert 'cinema'");
         String swi=scanner.next();
         System.out.println("please insert id");
-        int id = scanner.nextInt();
+         id = scanner.nextInt();
         System.out.println("insert passcode");
         int pass= scanner.nextInt();
         switch (swi){
@@ -64,7 +65,9 @@ public class Menu {
         }
     }
     public void cinema(){
-
+        boolean isRun = true;
+        cinemaApp.setId(id);
+        while (isRun){
         System.out.println("\t\tWELCOME" +
                 "\tfor insert ticket insert 1\n" +
                 "\tfor cancel ticket insert \n "+
@@ -81,7 +84,7 @@ public class Menu {
                 break;
             case 4:
         }
-    }
+    }}
     public void user(){
         boolean isRun=true;
         while (isRun){
